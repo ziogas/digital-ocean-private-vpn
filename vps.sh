@@ -9,9 +9,9 @@ init(){
 
     if [ "$#" -lt 1 ]; then
         echo "Error: Not enough arguments"
-        echo "Example create: $0 create do_api_key ssh_key_name [droplet_tag_name]"
-        echo "Example destroy: $0 destroy do_api_key [droplet_tag_name]"
-        echo "Example check: $0 check do_api_key [droplet_tag_name]"
+        echo "Example create: $0 create do_api_key ssh_key_name [optional_droplet_region] [optional_droplet_tagname]"
+        echo "Example destroy: $0 destroy do_api_key [optional_droplet_tagname]"
+        echo "Example check: $0 check do_api_key [optional_droplet_tagname]"
         exit 1
     fi
 
@@ -32,6 +32,14 @@ init(){
         fi
     fi
 
+    # Droplet region
+    if [ "$#" -gt 0 ]; then
+        DROPLET_REGION="$1"
+        shift
+    else
+        DROPLET_REGION="nyc3"
+    fi
+
     # Tag name used to identify needed droplet
     if [ "$#" -gt 0 ]; then
         DROPLET_TAG_NAME="\"$1\""
@@ -40,7 +48,7 @@ init(){
         DROPLET_TAG_NAME="private-vpn"
     fi
 
-    DROPLET_CONFIGURATION="{\"name\":\"$DROPLET_TAG_NAME\",\"region\":\"nyc3\",\"size\":\"512mb\",\"image\":\"ubuntu-14-04-x64\",\"ssh_keys\":$SSH_FINGERPRINT,\"backups\":false,\"ipv6\":false,\"user_data\":null,\"private_networking\":null,\"volumes\": null,\"tags\":[\"$DROPLET_TAG_NAME\"]}"
+    DROPLET_CONFIGURATION="{\"name\":\"$DROPLET_TAG_NAME\",\"region\":\"$DROPLET_REGION\",\"size\":\"512mb\",\"image\":\"ubuntu-14-04-x64\",\"ssh_keys\":$SSH_FINGERPRINT,\"backups\":false,\"ipv6\":false,\"user_data\":null,\"private_networking\":null,\"volumes\": null,\"tags\":[\"$DROPLET_TAG_NAME\"]}"
     DROPLETS_ENTRYPOINT="https://api.digitalocean.com/v2/droplets"
 
     DROPLET_IP=""

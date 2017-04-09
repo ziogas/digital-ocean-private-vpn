@@ -36,7 +36,7 @@ Execute without any parameters:
 
 Execute and then follow instructions on the screen:
 
-    ./vps.sh create "API_KEY_HERE" "SSH_FINGERPRINT_HERE" [optional_tagname]
+    ./vps.sh create "API_KEY_HERE" "SSH_FINGERPRINT_HERE" [optional_region] [optional_tagname]
     
 Then you can import downloaded .ovpn file into your network manager.
 
@@ -55,6 +55,7 @@ Execute:
 ## Optional arguments
 
 Each command supports additional argument called optional_tagname which is by default "private-vpn". Tagname is used to identify droplets if you have more of them.
+Create command also supports optional_region which is by default "nyc3". See supported [digital ocean regions]. At the time of this writing it is AMS1, AMS2, AMS3, BLR1, FRA1, LON1, NYC1, NYC2, NYC3, SFO1, SFO2, SGP1, TOR1.
 
 ## Change VPS type/configuration
 
@@ -79,4 +80,5 @@ Arminas Zukauskas - arminas@ini.lt
 [VPN]: https://en.wikipedia.org/wiki/Virtual_private_network
 [Digital Ocean]: https://www.digitalocean.com/
 [hourly pricing]: https://www.digitalocean.com/pricing/
+[digital ocean regions]: https://status.digitalocean.com/
 [MIT]: https://tldrlegal.com/license/mit-license
