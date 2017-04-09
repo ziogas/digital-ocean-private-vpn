@@ -62,6 +62,10 @@ Create command also supports optional_region which is by default "nyc3". See sup
 
 Modify vps.sh file variable called `DROPLET_CONFIGURATION`
 
+## Tweak VPN
+
+After droplet creation openvpn-script-run.sh script is uploaded and executed on the server. If you want to modify vpn behavior just add anything to this file.
+
 ## Contributing
 
 1. Fork it!
