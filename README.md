@@ -36,19 +36,25 @@ Execute without any parameters:
 
 Execute and then follow instructions on the screen:
 
-    ./vps.sh create "API_KEY_HERE" "SSH_FINGERPRINT_HERE"
+    ./vps.sh create "API_KEY_HERE" "SSH_FINGERPRINT_HERE" [optional_tagname]
+    
+Then you can import downloaded .ovpn file into your network manager.
 
 ## Check whenever VPN already exists
 
 Execute:
 
-    ./vps.sh check "API_KEY_HERE"
+    ./vps.sh check "API_KEY_HERE" [optional_tagname]
 
 ## Destroy VPN
 
 Execute:
 
-    ./vps.sh destroy "API_KEY_HERE"
+    ./vps.sh destroy "API_KEY_HERE" [optional_tagname]
+
+## Optional arguments
+
+Each command supports additional argument called optional_tagname which is by default "private-vpn". Tagname is used to identify droplets if you have more of them.
 
 ## Change VPS type/configuration
 
