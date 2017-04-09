@@ -11,7 +11,8 @@ Advantages:
 
 Checkout and place in a safe place the latest version:
 
-    git clone git://github.com/ziogas/do-private-vpn
+    git clone git://github.com/ziogas/digital-ocean-private-vpn;
+    cd digital-ocean-private-vpn;
     chmod +x ./vps.sh;
 
 ## Obtain Digital Ocean API key
@@ -37,7 +38,7 @@ Execute without any parameters:
 Execute and then follow instructions on the screen:
 
     ./vps.sh create "API_KEY_HERE" "SSH_FINGERPRINT_HERE" [optional_region] [optional_tagname]
-    
+
 Then you can import downloaded .ovpn file into your network manager.
 
 ## Check whenever VPN already exists
